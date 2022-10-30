@@ -15,10 +15,10 @@ function writePassword() {
     passwordLength <= 128 &&
     passwordLength % Math.floor(passwordLength) === 0
   ) {
-    // When password length is validated provides confirmation for character length
-    alert("Password Length: " + passwordLength + " Characters");
-    // If user cancels input, exits out of the writePassword function
-  } else if (passwordLength === null) {
+    // When password length is validated, continues to charInput function.
+  }
+  // Exits function if passwordLength is cancelled.
+  else if (passwordLength === null) {
     return;
   }
   // Returns to start of function if password length is incorrect value
@@ -35,6 +35,7 @@ function writePassword() {
     special: 0,
   };
 
+  // function to provide boolean value for each variable in charTypes object
   function charInput() {
     charTypes.lowercase = confirm(
       "Include lowercase letters? OK=Yes, Cancel=No"
@@ -50,8 +51,9 @@ function writePassword() {
     );
     return;
   }
-  charInput();
 
+  // Run charInput function. If all are false re-runs function until at least one is true and log values to console.
+  charInput();
   if (
     charTypes.lowercase === false &&
     charTypes.uppercase === false &&
@@ -62,6 +64,44 @@ function writePassword() {
     charInput();
   }
 
+  // Log boolean values for character selection
+  console.log("Use lowercase characters: " + charTypes.lowercase);
+  console.log("Use uppercase characters: " + charTypes.uppercase);
+  console.log("Use numeric characters: " + charTypes.numeric);
+  console.log("Use special characters: " + charTypes.special);
+
+  // create variables for all character types
+  var lowerChar = "abcdefghijklmnopqrstuvwxyz";
+  var upperChar = lowerChar.toUpperCase();
+  var numChar = "0123456789";
+  var specChar = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+  // Possible combinations for charInput
+  if (charTypes.lowercase === true) {
+    var charUsed = lowerChar;
+  } else {
+    var charUsed = "";
+  }
+
+  if (charTypes.uppercase === true) {
+    var charUsed = charUsed + upperChar;
+  } else {
+  }
+
+  if (charTypes.numeric === true) {
+    var charUsed = charUsed + numChar;
+  } else {
+  }
+
+  if (charTypes.special === true) {
+    var charUsed = charUsed + specChar;
+  } else {
+  }
+
+  // Log character values used for password
+  console.log("Characters used: " + charUsed);
+
+  // generatePassword() {}
   // var password = generatePassword();
   // var passwordText = document.querySelector("#password");
 
