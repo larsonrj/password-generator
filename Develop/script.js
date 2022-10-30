@@ -15,11 +15,8 @@ function writePassword() {
     passwordLength <= 128 &&
     passwordLength % Math.floor(passwordLength) === 0
   ) {
-    // When password length is validated prompts to include lowercase letters
-    var lower = confirm("Include lowercase letters? OK=Yes, Cancel=No");
-    var upper = confirm("Include uppercase letters? OK=Yes, Cancel=No");
-    var numeric = confirm("Include numeric characters? OK=Yes, Cancel=No");
-    var special = confirm("Include special characters? OK=Yes, Cancel=No");
+    // When password length is validated provides confirmation for character length
+    alert("Password Length: " + passwordLength + " Characters");
     // If user cancels input, exits out of the writePassword function
   } else if (passwordLength === null) {
     return;
@@ -30,21 +27,26 @@ function writePassword() {
     writePassword();
   }
 
-  console.log("Use lowercase characters: " + lower);
-  console.log("Use uppercase characters: " + upper);
-  console.log("Use numeric characters: " + numeric);
-  console.log("Use special characters: " + special);
+  // Create object for the character type boolean values
+  var charTypes = {
+    lowercase: confirm("Include lowercase letters? OK=Yes, Cancel=No"),
+    uppercase: confirm("Include uppercase letters? OK=Yes, Cancel=No"),
+    numeric: confirm("Include numeric characters? OK=Yes, Cancel=No"),
+    special: confirm("Include special characters? OK=Yes, Cancel=No"),
+  };
 
   if (
-    lower === false &&
-    upper === false &&
-    numeric === false &&
-    special === false
+    charTypes.lowercase === false &&
+    charTypes.uppercase === false &&
+    charTypes.numeric === false &&
+    charTypes.special === false
   ) {
-    alert("Please select at least one character type.");
+    alert("Please include at least one character type");
+    writePassword();
   } else {
     return;
   }
+
   // var password = generatePassword();
   // var passwordText = document.querySelector("#password");
 
