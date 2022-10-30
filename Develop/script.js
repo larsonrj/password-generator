@@ -29,11 +29,28 @@ function writePassword() {
 
   // Create object for the character type boolean values
   var charTypes = {
-    lowercase: confirm("Include lowercase letters? OK=Yes, Cancel=No"),
-    uppercase: confirm("Include uppercase letters? OK=Yes, Cancel=No"),
-    numeric: confirm("Include numeric characters? OK=Yes, Cancel=No"),
-    special: confirm("Include special characters? OK=Yes, Cancel=No"),
+    lowercase: 0,
+    uppercase: 0,
+    numeric: 0,
+    special: 0,
   };
+
+  function charInput() {
+    charTypes.lowercase = confirm(
+      "Include lowercase letters? OK=Yes, Cancel=No"
+    );
+    charTypes.uppercase = confirm(
+      "Include uppercase letters? OK=Yes, Cancel=No"
+    );
+    charTypes.numeric = confirm(
+      "Include numeric characters? OK=Yes, Cancel=No"
+    );
+    charTypes.special = confirm(
+      "Include special characters? OK=Yes, Cancel=No"
+    );
+    return;
+  }
+  charInput();
 
   if (
     charTypes.lowercase === false &&
@@ -42,9 +59,7 @@ function writePassword() {
     charTypes.special === false
   ) {
     alert("Please include at least one character type");
-    writePassword();
-  } else {
-    return;
+    charInput();
   }
 
   // var password = generatePassword();
