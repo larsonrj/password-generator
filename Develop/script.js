@@ -101,11 +101,29 @@ function writePassword() {
   // Log character values used for password
   console.log("Characters used: " + charUsed);
 
-  // generatePassword() {}
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
+  // Function to create array with random characters with a length of the password length
+  function generatePassword(passwordLength) {
+    for (i = 0; i < passwordLength; i++) {
+      var randomChar = charUsed.charAt(
+        Math.floor(Math.random() * charUsed.length)
+      );
+      var arr = [];
+      var result = arr.concat(result, arr.splice(i, 0, randomChar));
+    }
+    var password = result.join("");
+    return password;
+  }
 
-  // passwordText.value = password;
+  // Call generate password function
+  var password = generatePassword(passwordLength);
+
+  // Log password to the console
+  console.log("Your password is: " + password);
+
+  // Add text to the html document to update with your new password
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
 }
 
 // Add event listener to generate button
