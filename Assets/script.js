@@ -119,6 +119,7 @@ function writePassword() {
 
   // Log password to the console
   console.log("Your password is: " + password);
+  console.log("Password length is: " + password.length);
 
   // Add text to the html document to update with your new password
   var passwordText = document.querySelector("#password");
