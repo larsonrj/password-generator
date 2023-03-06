@@ -14,8 +14,8 @@ Write javascript code to create a password generator that creates a password bet
 
 ## Website Link
 
-Link to deployed website is [Ryan Larson Portfolio](https://larsonrj.github.io/password-generator/)
+Link to deployed website is [Password Generator](https://larsonrj.github.io/password-generator/)
 
 ## Website Preview
 
-![Screenshot of Ryan Larson Portfolio](./Assets/screenshot.PNG)
+![Screenshot of Password Generator](./Assets/screenshot.PNG)
